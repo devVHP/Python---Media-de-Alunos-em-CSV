@@ -8,18 +8,15 @@ else:
     arquivo = open(f'{nome_arquivo}.csv','w')
     arquivo.write('Nome;NP1;NP2;Media;Exame;Media Final;Resultado\n')
 
-
-alunos = (input('Quantidade de alunos: '))
-
-
+quantidade_alunos = (input('Quantidade de alunos: '))
 #ALUNOS
-while alunos.isnumeric() == False:
+while quantidade_alunos.isnumeric() == False:
     print('Digite um número!')
-    alunos = (input('Quantidade de alunos: '))
-if alunos.isnumeric():
-    alunos = int(alunos)
+    quantidade_alunos = (input('Quantidade de alunos: '))
+if quantidade_alunos.isnumeric():
+    quantidade_alunos = int(quantidade_alunos)
 
-for i in range(1, alunos + 1):
+for i in range(1, quantidade_alunos + 1):
 
 #NOME
     print(f'Aluno {i}')
@@ -65,7 +62,7 @@ for i in range(1, alunos + 1):
                 arquivo.write(f'{media};')
                 if media >= 7:
                     print('Aluno Aprovado\n')
-                    mf = media
+                    media_final = media
                     arquivo.write(f'---;')
                     arquivo.write(f'---;')
                     arquivo.write('Aprovado')
@@ -73,27 +70,27 @@ for i in range(1, alunos + 1):
 
                 else:
 #EXAME
-                    ex = (input('Nota do exame: '))
-                    while ex.isnumeric() == False:
+                    exame = (input('Nota do exame: '))
+                    while exame.isnumeric() == False:
                         print('Digite um número válido!')
-                        ex = (input('Nota do exame: '))
-                    if ex.isnumeric():
-                        ex = float(ex)
-                        arquivo.write(f'{ex};')
-                        while ex > 10:
+                        exame = (input('Nota do exame: '))
+                    if exame.isnumeric():
+                        exame = float(exame)
+                        arquivo.write(f'{exame};')
+                        while exame > 10:
                             print('O valor do exame não pode ser maior do que 10!')
-                            ex = (input('Nota do exame: '))
-                            ex = float(ex)
+                            exame = (input('Nota do exame: '))
+                            exame = float(exame)
 
 #MEDIAFINAL
-                        mf = (media + ex) / 2
-                        arquivo.write(f'{mf};')
-                        if mf >= 5:
-                            print(f'Media final: {mf:.2f}')
+                        media_final = (media + exame) / 2
+                        arquivo.write(f'{media_final};')
+                        if media_final >= 5:
+                            print(f'Media final: {media_final:.2f}')
                             print('Aluno Aprovado\n')
                             arquivo.write('Aprovado')
                         else:
-                            print(f'Media final: {mf:.2f}')
+                            print(f'Media final: {media_final:.2f}')
                             print('Aluno Reprovado\n')
                             arquivo.write('Reprovado')
 
@@ -102,5 +99,5 @@ for i in range(1, alunos + 1):
         print('Digite um nome!')
         nome = input('Nome: ')
 
-arquivo.close
+arquivo.close()
 
