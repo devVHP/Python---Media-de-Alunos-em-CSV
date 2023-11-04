@@ -1,8 +1,16 @@
 import csv
 import os
+
+nome_arquivo = input('Digite o nome do arquivo: ')
+if os.path.exists(f'{nome_arquivo}.csv'):
+    arquivo = open(f'{nome_arquivo}.csv','a')
+else:
+    arquivo = open(f'{nome_arquivo}.csv','w')
+    arquivo.write('Nome;NP1;NP2;Media;Exame;Media Final;Resultado\n')
+
+
 alunos = (input('Quantidade de alunos: '))
 
-arquivo = open('medias.csv','a')
 
 #ALUNOS
 while alunos.isnumeric() == False:
